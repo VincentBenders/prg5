@@ -1,0 +1,3 @@
+<div>
+    {{ $card }} jnmsdfbbmsdf
+</div>
