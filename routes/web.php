@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 //naar home controller
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/details/{$id}', [HomeController::class, 'show']);
 
 Route::get('/contact', function() {
     $company = 'Hogeschool Rotterdam';

@@ -9,6 +9,13 @@ class HomeController extends Controller
 {
     function index()
     {
+        $cards = Card::all();
+
+        return view('home', compact('cards'));
+    }
+
+    function show()
+    {
         $card = Card::find(1);
         return view('home' , compact('card'));
     }
