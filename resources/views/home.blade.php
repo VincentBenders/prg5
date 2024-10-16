@@ -1,3 +1,3 @@
 <div>
-    {{ $card }} jnmsdfbbmsdf
+    {{ $card->name }} jnmsdfbbmsdf
 </div>
