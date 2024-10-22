@@ -24,5 +24,6 @@
                 <option value="white">white</option>
             </select>
         </div>
+        <input type="submit">
     </form>
 </x-layout>

@@ -1,9 +1,12 @@
 <x-layout>
 @foreach($cards as $card)
-
-        <h1>{{ $card->name }}</h1>
-        <h2>{{ $card->type }}</h2>
-        <p>{{ $card->description }}</p>
-
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <div class="font-bold text-xl mb-2">{{ $card->name }}</div>
+            {{ $card->type }}
+            <p class="text-gray-700 text-base">
+                {{ $card->description }}
+            </p>
+            <a href="/details/{{$card->id}}">view card</a>
+        </div>
 @endforeach
 </x-layout>

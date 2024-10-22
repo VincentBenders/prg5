@@ -4,21 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use Illuminate\Http\Request;
+use function Pest\Laravel\get;
 
 class HomeController extends Controller
 {
     function index()
     {
-        $cards = Card::all();
-
-        return view('home', compact('cards'));
+//        $cards = Card::all();
+//
+//        return view('home', compact('cards'));
+        return redirect(route('cards.index'));
     }
 
-    function show()
-    {
-        $card = Card::find(1);
-        return view('home' , compact('card'));
-    }
+//    function show($id)
+//    {
+
+//    if (\Auth::user()->is_admin) {}
+//        $card = Card::find$id);
+//        return view('home' , compact('card'));
+//    }
     //whoops
     /*
         $card = new Card();
