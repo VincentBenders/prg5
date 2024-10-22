@@ -16,7 +16,13 @@
         </div>
         <div>
             <p>Color</p>
-            <input type="text" name="color" id="">
+            <select id="color" name="color">
+                <option value="red">red</option>
+                <option value="blue">blue</option>
+                <option value="green">green</option>
+                <option value="black">black</option>
+                <option value="white">white</option>
+            </select>
         </div>
     </form>
 </x-layout>
