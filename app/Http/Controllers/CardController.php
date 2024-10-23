@@ -14,6 +14,7 @@ class CardController extends Controller
     {
         //
         $cards = Card::all();
+
         return view('cards.index', compact('cards'));
     }
 
@@ -23,6 +24,7 @@ class CardController extends Controller
     public function create()
     {
         //
+        return view('cards.create');
     }
 
     /**
@@ -31,6 +33,7 @@ class CardController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
