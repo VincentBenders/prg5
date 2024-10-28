@@ -50,20 +50,6 @@ class CardController extends Controller
         $card->colorless = $request->input('colorless');
         $card->generic = $request->input('generic');
 
-//        $card->name = 'test';
-//        $card->description = 'test';
-//        $card->type = 'test';
-//        $card->color_id = 1;
-//        $card->power = 1;
-//        $card->toughness = 1;
-//        $card->blue = 1;
-//        $card->black = 1;
-//        $card->green = 1;
-//        $card->red = 1;
-//        $card->white = 1;
-//        $card->colorless = 1;
-//        $card->generic = 1;
-
         $card->save();
         return redirect('/');
 
