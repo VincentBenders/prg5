@@ -11,4 +11,9 @@ class Card extends Model
     {
         return $this->belongsTo(Color::class);
     }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

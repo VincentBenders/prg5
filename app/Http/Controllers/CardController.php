@@ -49,6 +49,7 @@ class CardController extends Controller
         $card->white = $request->input('white');
         $card->colorless = $request->input('colorless');
         $card->generic = $request->input('generic');
+        $card->user_id = auth()->user()->id;
 
         $card->save();
         return redirect('/');
