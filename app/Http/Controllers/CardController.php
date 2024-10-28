@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Card;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -10,9 +11,19 @@ class CardController extends Controller
     /**
      * Display a listing of the resource.
      */
+    function admin()
+    {
+        if (\Auth::user()->is_admin) {
+            $cards = Card::all();
+            $users = User::all();
+            return view('admin', compact('cards'), compact('users'));
+        } else {
+            return view('auth.login');
+        }
+    }
     public function index()
     {
-        //
+
         $cards = Card::all();
 
         return view('cards.index', compact('cards'));
@@ -32,8 +43,6 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //get all inputs
-    //save in record
         $card = new Card;
 
         $card->name = $request->input('name');

@@ -10,6 +10,8 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                      <h1>{{ $card->name }}</h1>
+                    <h2>{{ $card->color->name }} {{ $card->type}}</h2>
+                    <div>{{$card->description }}</div>
 
                 </div>
             </div>
