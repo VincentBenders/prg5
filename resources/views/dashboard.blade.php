@@ -9,7 +9,32 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                    <p class="text-center text-4xl">you made {{$total}} commanders</p>
+                    @if($total > 5)
+                        <p class="text-center text-4xl">make 5 to be able to delete some</p>
+                    @endif
+                    @foreach($cards as $card)
+                        <div class="mb-10">
+                            <p class="font-bold text-2xl mb-2">{{ $card->name }}</p>
+                            <p class=" text-xl mb-2">{{$card->color->name}} {{ $card->type }}</p>
+                            <p class="mb-2">
+                                {{ $card->description }}
+                            </p>
+
+                            <a class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" href="{{ route('cards.show', $card) }}">details</a>
+                            <a class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" href="{{ route('cards.show', $card) }}">bewerken</a>
+                            @if($total >= 5)
+                                <form action="{{route('cards.destroy', $card)}}" method="POST" >
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                        delete
+                                    </button>
+                                </form>
+                            @endif
+
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

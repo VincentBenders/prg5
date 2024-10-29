@@ -21,6 +21,13 @@ class CardController extends Controller
             return view('auth.login');
         }
     }
+
+    function dashboard(){
+        $cards = Card::where('user_id', \Auth::user()->id)->get();
+        $total = $cards->count();
+
+        return view('dashboard', compact('cards'), ['total' => $total]);
+    }
     public function index()
     {
 
