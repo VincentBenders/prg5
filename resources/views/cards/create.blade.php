@@ -1,5 +1,4 @@
 <x-app-layout>
-    <!-- Simplicity is the essence of happiness. - Cedric Bledsoe -->
     <form action="{{ route('cards.store') }}" method="POST" class="dark:text-white">
         @csrf
 {{--        @method('put')--}}

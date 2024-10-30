@@ -88,6 +88,7 @@ class CardController extends Controller
     public function edit(Card $card)
     {
         //
+        return view('cards.edit', compact('card'));
     }
 
     /**
@@ -96,6 +97,24 @@ class CardController extends Controller
     public function update(Request $request, Card $card)
     {
         //
+        $card = Card::find($card->id);
+
+        $card->name = $request->input('name');
+        $card->description = $request->input('description');
+        $card->type = $request->input('type');
+        $card->color_id = $request->input('color');
+        $card->power = $request->input('power');
+        $card->toughness = $request->input('toughness');
+        $card->blue = $request->input('blue');
+        $card->black = $request->input('black');
+        $card->green = $request->input('green');
+        $card->red = $request->input('red');
+        $card->white = $request->input('white');
+        $card->colorless = $request->input('colorless');
+        $card->generic = $request->input('generic');
+
+        $card->save();
+        return redirect('/');
     }
 
     /**
