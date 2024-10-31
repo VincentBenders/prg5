@@ -28,10 +28,11 @@ class CardController extends Controller
 
         return view('dashboard', compact('cards'), ['total' => $total]);
     }
+
     public function index()
     {
 
-        $cards = Card::all();
+        $cards = Card::where('is_visible', true)->get();
 
         return view('cards.index', compact('cards'));
     }
@@ -125,5 +126,18 @@ class CardController extends Controller
         //
         $card->delete();
         return redirect('/');
+    }
+
+    public function visible(Card $card)
+    {
+        $card = Card::find($card->id);
+        if($card->is_visible){
+            $card->is_visible = false;
+        }else {
+            $card->is_visible = true;
+        }
+
+        $card->save();
+        return redirect('/dashboard');
     }
 }
