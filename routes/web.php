@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 //naar home controller
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/admin', [CardController::class, 'admin']);
+Route::get('/admin', [CardController::class, 'admin'])->name('cards.admin');
+Route::get('/search', [CardController::class, 'search'])->name('cards.search');
 Route::put('cards/{card}/visible', [CardController::class, 'visible'])->name('cards.visible');
 Route::resource('cards', CardController::class)->middleware('auth');
 

@@ -41,7 +41,7 @@
                     </div>
                     @if(Auth::user()->is_admin)
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('')">
+                            <x-nav-link :href="route('cards.admin')" :active="request()->routeIs('')">
                                 {{ __('Admin') }}
                             </x-nav-link>
                         </div>

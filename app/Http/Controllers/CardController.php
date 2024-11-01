@@ -140,4 +140,13 @@ class CardController extends Controller
         $card->save();
         return redirect('/dashboard');
     }
+
+    public function search(Request $request)
+    {
+
+        $cards = Card::where('name', $request->input('searchbar'))->get();
+
+        return view('cards.index', compact('cards'));
+    }
+
 }
