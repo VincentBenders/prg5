@@ -143,8 +143,14 @@ class CardController extends Controller
 
     public function search(Request $request)
     {
+        if($request->input('searchbar') == ''){
+            $cards = Card::where('color_id', $request->input('color'))->get();
+        } else if ($request->input('filter') != 0) {
+            $cards = Card::where('name', $request->input('searchbar'))->get();
+        } else {
+            $cards = Card::where(['name' => $request->input('searchbar')], ['color_id' => $request->input('color')])->get();
+        }
 
-        $cards = Card::where('name', $request->input('searchbar'))->get();
 
         return view('cards.index', compact('cards'));
     }
