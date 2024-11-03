@@ -51,6 +51,22 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+            'color' => 'required',
+            'power' => 'required',
+            'toughness' => 'required',
+            'blue' => 'required',
+            'black' => 'required',
+            'green' => 'required',
+            'red' => 'required',
+            'white' => 'required',
+            'colorless' => 'required',
+            'generic' => 'required',
+
+        ]);
         $card = new Card;
 
         $card->name = $request->input('name');
@@ -98,7 +114,23 @@ class CardController extends Controller
      */
     public function update(Request $request, Card $card)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'type' => 'required',
+            'color' => 'required',
+            'power' => 'required',
+            'toughness' => 'required',
+            'blue' => 'required',
+            'black' => 'required',
+            'green' => 'required',
+            'red' => 'required',
+            'white' => 'required',
+            'colorless' => 'required',
+            'generic' => 'required',
+
+        ]);
+
         $card = Card::find($card->id);
 
         $card->name = $request->input('name');

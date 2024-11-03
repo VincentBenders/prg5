@@ -2,6 +2,16 @@
     <form action="{{ route('cards.update', ['card' => $card]) }}" method="POST" class="dark:text-white">
         @csrf
                 @method('PUT')
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+
+        @endif
         <div>
             <p class="text-xl">Name</p>
             <input type="text" name="name" id="" class="dark:bg-gray-800" value="{{$card->name}}">
