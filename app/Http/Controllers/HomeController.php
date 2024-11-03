@@ -11,10 +11,9 @@ class HomeController extends Controller
 {
     function index()
     {
-        $cards = Card::all();
+        $cards = Card::where('is_visible', true)->get();
 
         return view('cards.index', compact('cards'));
-//        return redirect(route('cards.index'));
     }
     function admin()
     {
